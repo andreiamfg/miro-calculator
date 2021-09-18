@@ -11,79 +11,80 @@
     <script src="https://miro.com/app/static/sdk.1.1.js"></script>
   </head>
   <body>
-    <div class="grid wrapper" style="height:100%; overflow-y:auto;">
-      
-      <div class="cs1 ce12">
-        <h1>Calculator</h1>
-      <hr>
-        <!-- <br>
-        <p class="p-medium">Performs some simple Math functions based on Selected Sticky Notes.</p>
-        <br> -->
-        <h3>Count</h3>
-        <p class="p-small">Total of All Selected Objects.</p>
-        <div class="cs1 ce12">
-          <a
-            id="btn-count"
-            class="button button-primary button-small"
-            target="_blank"
-          >
-            Count
-          </a>
+    <div class="sidebar__container">
+      <div class="sidebar-calculator">
+        <div class="sidebar__header" aria-hidden="true">
+          <!-- <div class="sidebar-caption">Calculator</div> -->
+          <h2>Calculator</h2>
+          
         </div>
-        
-        <p id="count-selected" class="p-medium">Selected Objects:</p>
-        <br>
-        <h3>Add</h3>
-        <p class="p-small">Adds values from all Sticky Notes.</p>
-  
-        <div class="cs1 ce12">
-          <a
-            id="btn-sum"
-            class="button button-primary button-small"
-            target="_blank"
-          >
-            Add
-          </a>
+        <div class="sidebar__content">
+          <div class="sidebar-content-container">
+            <div class="content-calculator">
+              <!-- ADD -->
+              <div class="calculator-function-row">
+                <div class="calculator-function-row-inner">
+                  <h3>Add</h3>
+                  <p class="p-small">Adds values from all Sticky Notes.</p> 
+                  <div class="cs1 ce12 btn-calculator">
+                    <button id="btn-sum" class="button button-primary button-small" target="_blank">
+                      Add
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- MULTIPLY -->
+              <div class="calculator-function-row">
+                <div class="calculator-function-row-inner">
+                  <h3>Multiply</h3>
+                  <p class="p-small">Multiplies values from all Sticky Notes.</p>
+                  <div class="cs1 ce12 btn-calculator">
+                    <button id="btn-multi" class="button button-primary button-small" target="_blank">
+                      Multiply
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- DIVIDE -->
+              <div class="calculator-function-row">
+                <div class="calculator-function-row-inner">
+                  <h3>Divide</h3>
+                  <p class="p-small">Divides values from all Sticky Notes.</p>
+                  <div class="cs1 ce12 btn-calculator">
+                    <button id="btn-div" class="button button-primary button-small" target="_blank">
+                      Divide
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- RANDOM -->
+              <div class="calculator-function-row">
+                <div class="calculator-function-row-inner">
+                  <h3>Random</h3>
+                  <p class="p-small">Generate a Random Number between first number and last number.</p>
+                  <div class="cs1 ce12 btn-calculator">
+                    <button id="btn-rand" class="button button-primary button-small" target="_blank">
+                      Random
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <br>
-        <h3>Multiply</h3>
-        <p class="p-small">Multiplies values from all Sticky Notes.</p>
-        <div class="cs1 ce12">
-          <a
-            id="btn-multi"
-            class="button button-primary button-small"
-            target="_blank"
-          >
-            Multiply
-          </a>
-        </div>
-        <br>
-        <h3>Divide</h3>
-        <p class="p-small">Divides values from all Sticky Notes.</p>
-        <div class="cs1 ce12">
-          <a
-            id="btn-div"
-            class="button button-primary button-small"
-            target="_blank"
-          >
-            Divide
-          </a>
-        </div>
-        <br>
-        <h3>Random</h3>
-        <p class="p-small">Generate a Random Number between first number and last number.</p>
-        <div class="cs1 ce12">
-          <a
-            id="btn-rand"
-            class="button button-primary button-small"
-            target="_blank"
-          >
-            Random
-          </a>
+        <div class="sidebar__footer" aria-hidden="true">
+           <p id="count-selected" class="p-medium" style="width:80%;">Selected Objects:</p>
+           <div class="cs8 ce12">
+            <button
+              id="btn-count"
+              class="button button-primary button-small"
+              target="_blank"
+            >
+              Count
+           </button>
+          </div>
         </div>
       </div>
-
-      
     </div>
     <script type="module" src="/src/app.js"></script>
     

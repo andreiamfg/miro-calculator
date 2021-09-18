@@ -1,8 +1,8 @@
 
 async function init() {
-  const widgets = await miro.board.selection.get();
-  document.querySelector('#count-selected').innerHTML = 'Selected Objects: ' + widgets.length;
+  miro.addListener('SELECTION_UPDATED', setCount);
 
+  setCount();
   document.querySelector('#btn-sum').addEventListener('click', function(){
     sumSelectedWidgets().then(() => console.log('click')).catch(e=> console.error('something went wrong'));
   });
@@ -16,7 +16,7 @@ async function init() {
     randomFromSelectedWidgets().then(() => console.log('click')).catch(e=> console.error('something went wrong'));
   });
   document.querySelector('#btn-count').addEventListener('click', function(){
-    setCount().then(() => console.log('click')).catch(e=> console.error('something went wrong'));
+    printCount().then(() => console.log('click')).catch(e=> console.error('something went wrong'));
   });
 }
 miro.onReady(() => {
@@ -24,6 +24,11 @@ init();
 });
 
 async function setCount()
+{
+  const widgets = await miro.board.selection.get();
+  document.querySelector('#count-selected').innerHTML = 'Selected Objects: ' + widgets.length;
+}
+async function printCount()
 {
   const widgets = await miro.board.selection.get();
   document.querySelector('#count-selected').innerHTML = 'Selected Objects: ' + widgets.length;

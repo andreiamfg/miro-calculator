@@ -15,10 +15,12 @@ html {
 
 body {
   height: 100%;
-  line-height: 1.5;
+  /*line-height: 1.5;
   margin: 0;
-  padding: 2rem;
+  padding: 2rem;*/
 }
+
+
 
 .container {
   max-width: 580px;
@@ -34,4 +36,128 @@ img {
 
 .button {
   text-decoration: none;
+}
+
+.sidebar__container {
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  width: 100%;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.sidebar-calculator {
+  width: 340px;
+  font-size: 14px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  outline: none;
+}
+
+.sidebar__header {
+  padding: 0 24px;
+  display: -ms-flexbox;
+  display: flex;
+  height: 64px;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.sidebar__header .sidebar-caption {
+  font-family: Formular, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.sidebar__content
+{
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  overflow: auto;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  background-color: var(--indigo50);
+}
+
+.sidebar-content-container
+{
+  height: 100%;
+}
+
+.calculator-content
+{
+  height: 100%;
+  margin-bottom: 0;
+  overflow-x: hidden;
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 0;
+    touch-action: pan-y;
+}
+
+.sidebar__footer {
+  height: 48px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  margin: 8px 0;
+  padding: 0 12px;
+}
+
+.calculator-function-row
+{
+  padding: var(--space-xsmall) var(--space-xsmall) var(--space-xxxsmall) var(--space-xsmall);
+}
+
+.calculator-function-row-inner
+{
+  padding: var(--space-small);
+  border: solid 1px #e4e4e4;
+  border-radius: var(--radiusM);
+  background-size: cover;
+  background-color: var(--white);
+}
+
+.content-calculator:last-child {
+  padding-bottom: var(--space-xsmall);
+}
+
+.btn-calculator 
+{
+  padding-top: var(--space-xsmall);
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  /* background: #f1f1f1;  */
+  border-radius: 10px;
+  margin: 0 0;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:var(--indigo600);
+  border-radius: 10px; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
