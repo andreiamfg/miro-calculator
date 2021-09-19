@@ -42,6 +42,9 @@ async function printCount()
     text: widgets.length,
     x: newX,
     y: newY,
+    style: {
+      stickerBackgroundColor: "#a6ccf5"
+    },
 });
 
 await miro.board.viewport.zoomToObject(sticker2);
@@ -65,6 +68,9 @@ async function sumSelectedWidgets()
       text: total.toString(),
       x: newX,
       y: newY,
+      style: {
+        stickerBackgroundColor: "#a6ccf5"
+      },
   });
 
   await miro.board.viewport.zoomToObject(sticker2);
@@ -92,6 +98,9 @@ async function subtractSelectedWidgets()
       text: total.toString(),
       x: newX,
       y: newY,
+      style: {
+        stickerBackgroundColor: "#a6ccf5"
+      },
   });
 
   await miro.board.viewport.zoomToObject(sticker2);
@@ -114,6 +123,9 @@ async function multiplySelectedWidgets()
       text: total.toString(),
       x: newX,
       y: newY,
+      style: {
+        stickerBackgroundColor: "#a6ccf5"
+      },
   });
 
   await miro.board.viewport.zoomToObject(sticker2);
@@ -135,6 +147,9 @@ async function divideSelectedWidgets()
       text: total.toString(),
       x: newX,
       y: newY,
+      style: {
+        stickerBackgroundColor: "#a6ccf5"
+      },
   });
 
   await miro.board.viewport.zoomToObject(sticker2);
@@ -172,6 +187,9 @@ async function randomFromSelectedWidgets()
     const [sticker2] = await miro.board.widgets.create({
       type: 'sticker',
       text: randomNumber.toString(),
+      style: {
+        stickerBackgroundColor: "#a6ccf5"
+      },
   });
     await miro.board.viewport.zoomToObject(sticker2);
   }
