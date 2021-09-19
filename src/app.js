@@ -159,6 +159,9 @@ async function randomFromSelectedWidgets()
         text: randomNumber.toString(),
         x: newX,
         y: newY,
+        style: {
+          stickerBackgroundColor: "#a6ccf5"
+        },
     });
   
     await miro.board.viewport.zoomToObject(sticker2);
