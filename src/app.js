@@ -133,11 +133,15 @@ async function multiplySelectedWidgets()
 async function divideSelectedWidgets()
 {
   const widgets = await miro.board.selection.get();
-  let total = 1;
+  let total = 0;
   for (let i = 0; i < widgets.length; i++){
     const num = parseInt(widgets[i].plainText);
     if (typeof num == 'number') {
-      total /= num;
+      if (i == 0) {
+        total = num;
+      } else {
+        total /= num;
+      }
     }
   }
   let newX = widgets[widgets.length-1].bounds.x + widgets[widgets.length-1].bounds.width;
