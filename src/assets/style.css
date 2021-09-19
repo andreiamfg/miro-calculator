@@ -126,7 +126,7 @@ img {
 {
   padding: var(--space-small);
   border: solid 1px #e4e4e4;
-  border-radius: var(--radiusM);
+  border-radius: var(--border-radius-medium);
   background-size: cover;
   background-color: var(--white);
 }
@@ -160,4 +160,45 @@ img {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
+}
+
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  background-color: transparent;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 260px;
+  background-color: #090909;
+  color:#F2F2F2;
+  text-align: center;
+  border-radius: var(--border-radius-medium);
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+  margin-left: -200px; 
+  margin-top: var(--space-small);
+  padding: var(--space-xsmall);
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+.tooltip .tooltiptext::before {
+  content: " ";
+  position: absolute;
+  top: -5px; /* At the bottom of the tooltip */
+  right: 50px;
+  margin-left: -10px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #090909 transparent;
+  transform: translate(-50%, calc(-0% - 5px));
 }

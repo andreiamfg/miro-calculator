@@ -16,16 +16,23 @@
         <div class="sidebar__header" aria-hidden="true">
           <!-- <div class="sidebar-caption">Calculator</div> -->
           <h2>Calculator</h2>
+          <span style="width: 120px;"></span>
+          <button class="icon icon-help-question tooltip">
+            <span class="tooltiptext">Select Objects with Numbers to use the Actions below. When using an Action, the result will be shown in a new Sticky Note.</span>
+          </button>
           
         </div>
+        <!-- <p class="p-small">Performs some simple Math functions based on Selected Sticky Notes.</p> -->
+        
         <div class="sidebar__content">
+          
           <div class="sidebar-content-container">
             <div class="content-calculator">
               <!-- ADD -->
               <div class="calculator-function-row">
                 <div class="calculator-function-row-inner">
                   <h3>Add</h3>
-                  <p class="p-small">Adds values from all Sticky Notes.</p> 
+                  <p class="p-small">Adds values from all Selected Objects.</p> 
                   <div class="cs1 ce12 btn-calculator">
                     <button id="btn-sum" class="button button-primary button-small" target="_blank">
                       Add
@@ -37,7 +44,7 @@
               <div class="calculator-function-row">
                 <div class="calculator-function-row-inner">
                   <h3>Multiply</h3>
-                  <p class="p-small">Multiplies values from all Sticky Notes.</p>
+                  <p class="p-small">Multiplies values from all Selected Objects.</p>
                   <div class="cs1 ce12 btn-calculator">
                     <button id="btn-multi" class="button button-primary button-small" target="_blank">
                       Multiply
@@ -49,7 +56,7 @@
               <div class="calculator-function-row">
                 <div class="calculator-function-row-inner">
                   <h3>Divide</h3>
-                  <p class="p-small">Divides values from all Sticky Notes.</p>
+                  <p class="p-small">Divides values from all Selected Objects.</p>
                   <div class="cs1 ce12 btn-calculator">
                     <button id="btn-div" class="button button-primary button-small" target="_blank">
                       Divide
@@ -61,7 +68,7 @@
               <div class="calculator-function-row">
                 <div class="calculator-function-row-inner">
                   <h3>Random</h3>
-                  <p class="p-small">Generate a Random Number between first number and last number.</p>
+                  <p class="p-small">Generate a Random Number between First Selected Number and Second Selected Number.</p>
                   <div class="cs1 ce12 btn-calculator">
                     <button id="btn-rand" class="button button-primary button-small" target="_blank">
                       Random
