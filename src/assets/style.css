@@ -224,3 +224,16 @@ img {
   border-color: transparent transparent #090909 transparent;
   transform: translate(-50%, calc(-0% - 5px));
 }
+
+.btn-icon
+{
+  /* width: 16px;
+  height: 16px;
+  min-width: 16px;
+  max-width: 16px;
+  min-height: 16px;
+  max-height: 16px;
+  overflow: hidden; */
+  color: var(--white);
+  height: 100%;
+}
