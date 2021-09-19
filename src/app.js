@@ -6,6 +6,9 @@ async function init() {
   document.querySelector('#btn-sum').addEventListener('click', function(){
     sumSelectedWidgets().then(() => console.log('click')).catch(e=> console.error('something went wrong'));
   });
+  document.querySelector('#btn-sub').addEventListener('click', function(){
+    subtractSelectedWidgets().then(() => console.log('click')).catch(e=> console.error('something went wrong'));
+  });
   document.querySelector('#btn-multi').addEventListener('click', function(){
     multiplySelectedWidgets().then(() => console.log('click')).catch(e=> console.error('something went wrong'));
   });
@@ -52,6 +55,33 @@ async function sumSelectedWidgets()
     const num = parseInt(widgets[i].plainText);
     if (typeof num == 'number') {
       total += num;
+    }
+  }
+  let newX = widgets[widgets.length-1].bounds.x + widgets[widgets.length-1].bounds.width;
+  let newY = widgets[widgets.length-1].bounds.y;
+
+  const [sticker2] = await miro.board.widgets.create({
+      type: 'sticker',
+      text: total.toString(),
+      x: newX,
+      y: newY,
+  });
+
+  await miro.board.viewport.zoomToObject(sticker2);
+}
+async function subtractSelectedWidgets()
+{
+  const widgets = await miro.board.selection.get();
+  let total = 0;
+  for (let i = 0; i < widgets.length; i++){
+    const num = parseInt(widgets[i].plainText);
+    
+    if (typeof num == 'number') {
+      if(i==0) {
+        total = num;
+      } else {
+        total -= num;
+      }
     }
   }
   let newX = widgets[widgets.length-1].bounds.x + widgets[widgets.length-1].bounds.width;
