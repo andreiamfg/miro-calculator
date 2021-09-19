@@ -47,7 +47,7 @@ async function printCount()
     },
 });
 
-await miro.board.viewport.zoomToObject(sticker2);
+// await miro.board.viewport.zoomToObject(sticker2);
 }
 
 async function sumSelectedWidgets()
@@ -73,7 +73,7 @@ async function sumSelectedWidgets()
       },
   });
 
-  await miro.board.viewport.zoomToObject(sticker2);
+  // await miro.board.viewport.zoomToObject(sticker2);
 }
 async function subtractSelectedWidgets()
 {
@@ -103,7 +103,7 @@ async function subtractSelectedWidgets()
       },
   });
 
-  await miro.board.viewport.zoomToObject(sticker2);
+  // await miro.board.viewport.zoomToObject(sticker2);
 }
 
 async function multiplySelectedWidgets()
@@ -128,7 +128,7 @@ async function multiplySelectedWidgets()
       },
   });
 
-  await miro.board.viewport.zoomToObject(sticker2);
+  // await miro.board.viewport.zoomToObject(sticker2);
 }
 async function divideSelectedWidgets()
 {
@@ -156,7 +156,7 @@ async function divideSelectedWidgets()
       },
   });
 
-  await miro.board.viewport.zoomToObject(sticker2);
+  // await miro.board.viewport.zoomToObject(sticker2);
 }
 
 
@@ -183,7 +183,7 @@ async function randomFromSelectedWidgets()
         },
     });
   
-    await miro.board.viewport.zoomToObject(sticker2);
+    // await miro.board.viewport.zoomToObject(sticker2);
     }
   }
   else {
