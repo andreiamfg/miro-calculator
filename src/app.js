@@ -163,7 +163,15 @@ async function randomFromSelectedWidgets()
   
     await miro.board.viewport.zoomToObject(sticker2);
     }
-  } 
+  }
+  else {
+    const randomNumber = randomIntFromInterval(1,6);
+    const [sticker2] = await miro.board.widgets.create({
+      type: 'sticker',
+      text: randomNumber.toString(),
+  });
+    await miro.board.viewport.zoomToObject(sticker2);
+  }
 }
 
 function randomIntFromInterval(min, max) { // min and max included 
