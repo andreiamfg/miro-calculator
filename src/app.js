@@ -31,23 +31,46 @@ async function setCount()
   const widgets = await miro.board.selection.get();
   document.querySelector('#count-selected').innerHTML = 'Selected Objects: ' + widgets.length;
 }
+
+async function createSticker(text, x, y, zoom = false)
+{
+  const [sticker2] = await miro.board.widgets.create({
+    type: 'sticker',
+    text: text,
+    x: x,
+    y: y,
+    style: {
+      stickerBackgroundColor: "#a6ccf5"
+    },});
+
+    if (zoom) {
+      await miro.board.viewport.zoomToObject(sticker2);
+    }
+}
+
+async function getLastWidgetPos()
+{
+  const widgets = await miro.board.selection.get();
+  let lastX = -Infinity;
+  let lastY = -Infinity;
+  for (let i = 0; i < widgets.length; i++) {
+    if (widgets[i].bounds.x > lastX) {
+      lastX = widgets[i].bounds.x + widgets[i].bounds.width;
+    }
+    if (widgets[i].bounds.y > lastY) {
+      lastY = widgets[i].bounds.y;
+    }
+  }
+  let newPos = {x: lastX, y:lastY};
+  return newPos;
+}
+
 async function printCount()
 {
   const widgets = await miro.board.selection.get();
   document.querySelector('#count-selected').innerHTML = 'Selected Objects: ' + widgets.length;
-  let newX = widgets[widgets.length-1].bounds.x + widgets[widgets.length-1].bounds.width;
-  let newY = widgets[widgets.length-1].bounds.y;
-  const [sticker2] = await miro.board.widgets.create({
-    type: 'sticker',
-    text: widgets.length,
-    x: newX,
-    y: newY,
-    style: {
-      stickerBackgroundColor: "#a6ccf5"
-    },
-});
-
-// await miro.board.viewport.zoomToObject(sticker2);
+  let newPos = await getLastWidgetPos();
+  createSticker(widgets.length, newPos.x, newPos.y);
 }
 
 async function sumSelectedWidgets()
@@ -60,20 +83,8 @@ async function sumSelectedWidgets()
       total += num;
     }
   }
-  let newX = widgets[widgets.length-1].bounds.x + widgets[widgets.length-1].bounds.width;
-  let newY = widgets[widgets.length-1].bounds.y;
-
-  const [sticker2] = await miro.board.widgets.create({
-      type: 'sticker',
-      text: total.toString(),
-      x: newX,
-      y: newY,
-      style: {
-        stickerBackgroundColor: "#a6ccf5"
-      },
-  });
-
-  // await miro.board.viewport.zoomToObject(sticker2);
+  let newPos = await getLastWidgetPos();
+  createSticker(total.toString(), newPos.x, newPos.y);
 }
 async function subtractSelectedWidgets()
 {
@@ -90,20 +101,8 @@ async function subtractSelectedWidgets()
       }
     }
   }
-  let newX = widgets[widgets.length-1].bounds.x + widgets[widgets.length-1].bounds.width;
-  let newY = widgets[widgets.length-1].bounds.y;
-
-  const [sticker2] = await miro.board.widgets.create({
-      type: 'sticker',
-      text: total.toString(),
-      x: newX,
-      y: newY,
-      style: {
-        stickerBackgroundColor: "#a6ccf5"
-      },
-  });
-
-  // await miro.board.viewport.zoomToObject(sticker2);
+  let newPos = await getLastWidgetPos();
+  createSticker(total.toString(), newPos.x, newPos.y);
 }
 
 async function multiplySelectedWidgets()
@@ -116,19 +115,8 @@ async function multiplySelectedWidgets()
       total *= num;
     }
   }
-  let newX = widgets[widgets.length-1].bounds.x + widgets[widgets.length-1].bounds.width;
-  let newY = widgets[widgets.length-1].bounds.y;
-  const [sticker2] = await miro.board.widgets.create({
-      type: 'sticker',
-      text: total.toString(),
-      x: newX,
-      y: newY,
-      style: {
-        stickerBackgroundColor: "#a6ccf5"
-      },
-  });
-
-  // await miro.board.viewport.zoomToObject(sticker2);
+  let newPos = await getLastWidgetPos();
+  createSticker(total.toString(), newPos.x, newPos.y);
 }
 async function divideSelectedWidgets()
 {
@@ -144,19 +132,8 @@ async function divideSelectedWidgets()
       }
     }
   }
-  let newX = widgets[widgets.length-1].bounds.x + widgets[widgets.length-1].bounds.width;
-  let newY = widgets[widgets.length-1].bounds.y;
-  const [sticker2] = await miro.board.widgets.create({
-      type: 'sticker',
-      text: total.toString(),
-      x: newX,
-      y: newY,
-      style: {
-        stickerBackgroundColor: "#a6ccf5"
-      },
-  });
-
-  // await miro.board.viewport.zoomToObject(sticker2);
+  let newPos = await getLastWidgetPos();
+  createSticker(total.toString(), newPos.x, newPos.y);
 }
 
 
@@ -172,30 +149,12 @@ async function randomFromSelectedWidgets()
     let newY = widgets[widgets.length-1].bounds.y;
 
     const randomNumber = randomIntFromInterval(text1,text2);
-    if (typeof text1 == 'number' && typeof text2 == 'number') {
-      const [sticker2] = await miro.board.widgets.create({
-        type: 'sticker',
-        text: randomNumber.toString(),
-        x: newX,
-        y: newY,
-        style: {
-          stickerBackgroundColor: "#a6ccf5"
-        },
-    });
-  
-    // await miro.board.viewport.zoomToObject(sticker2);
-    }
+    let newPos = await getLastWidgetPos();
+    createSticker(randomNumber.toString(), newPos.x, newPos.y);
   }
   else {
-    const randomNumber = randomIntFromInterval(1,6);
-    const [sticker2] = await miro.board.widgets.create({
-      type: 'sticker',
-      text: randomNumber.toString(),
-      style: {
-        stickerBackgroundColor: "#a6ccf5"
-      },
-  });
-    await miro.board.viewport.zoomToObject(sticker2);
+    let newPos = await getLastWidgetPos();
+    createSticker(randomNumber.toString(), newPos.x, newPos.y);
   }
 }
 
